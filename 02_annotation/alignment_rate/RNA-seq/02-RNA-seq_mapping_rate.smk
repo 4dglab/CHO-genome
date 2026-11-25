@@ -6,9 +6,9 @@
 import os
 
 # fastp quality control and adapter trimming
-# cg13a stands for Cgr1.0 (2013), cg13b stands for C_griseus_v1.0 (2013), cg20 stands for CriGri-PICRH-1.0 (2020), cho_ont stands for our genome assembly (2026)
+# cg13a stands for Cgr1.0 (2013), cg13b stands for C_griseus_v1.0 (2013), cg20 stands for CriGri-PICRH-1.0 (2020), CriGri_PUMC stands for our genome assembly (2026)
 SAMPLE = ["sdu_1","sdu_2","sdu_3"]
-GENOME = ["cg13a","cg13b","cg20","cho_ont"]
+GENOME = ["cg13a","cg13b","cg20","CriGri_PUMC"]
 data_dir = os.environ["RNA_ALIGN_DIR"]
 HISAT2_INDEX = os.environ["HISAT2_INDEX_DIR"]
 

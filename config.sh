@@ -51,12 +51,16 @@ export GNUPLOT_PS_DIR="/path/to/gnuplot/PostScript"  # gnuplot PostScript resour
 # ==============================================================================
 # Reference genome, annotation and read indices (shared by several modules)
 # ==============================================================================
-export GENOME_FA="/path/to/ref_genome/cho_ont_clean.fa"          # requires a .fai index
-export GENOME_SIZES="/path/to/ref_genome/cho_ont_clean.sizes"
-export GENOME_GTF="/path/to/ref_genome/cho_ont_clean.gtf"        # gene table for ChromHMM
+# *_clean files keep scaffold_1 to scaffold_11 only (scaffold_12-74 removed).
+# How to build them: 06_Hi-C/README.md, section "Reference preparation".
+# If the released assembly and its indices already fit your analysis, point
+# these variables at the released files and skip the clean step.
+export GENOME_FA="/path/to/ref_genome/CriGri_PUMC_clean.fa"          # requires a .fai index
+export GENOME_SIZES="/path/to/ref_genome/CriGri_PUMC_clean.sizes"    # <scaffold> <length>
+export GENOME_GTF="/path/to/ref_genome/CriGri_PUMC_clean.gtf"        # same scaffolds as GENOME_FA
 export GENOME_GFF="/path/to/genomic.highconfidence.filtered.gff"
 export GENOME_BED12="/path/to/Chinese_genome_annotation.bed12"
-export ONT_REF_DIR="/path/to/data/CHO_ONT/ref_genome"            # cho_ont.fa + cho_ont.gtf (flat)
+export GENOME_REF_DIR="/path/to/data/CriGri_PUMC/ref_genome"         # full assembly: CriGri_PUMC.fa + .gtf (flat)
 export BT2_INDEX_DIR="/path/to/bowtie2_index"                    # <genome>/<genome>.*
 export HISAT2_INDEX_DIR="/path/to/hisat2_index"                  # <genome>/<genome>.*
 
@@ -76,7 +80,7 @@ export HISTONE_BW_DIR="/path/to/chrom_status/bw"                 # <mark>/<mark>
 export MACS3_OUT_DIR="/path/to/chrom_status/macs3_out"
 export CHROMHMM_PROJECT_DIR="/path/to/chrom_status/chromHMM_project"
 export CHROMHMM_HOME="/path/to/ChromHMM"                         # ChromHMM.jar + CHROMSIZES/ + COORDS/
-export CHROMHMM_GENOME="cho_ont_clean"                           # genome name used inside ChromHMM
+export CHROMHMM_GENOME="CriGri_PUMC_clean"                           # genome name used inside ChromHMM
 export GTF_TO_GENEPRED="/path/to/gtfToGenePred"
 export CHROMHMM_JAVA_OPTS="-Xms80g -Xmx80g -XX:ParallelGCThreads=20"
 
@@ -92,7 +96,7 @@ export MCCOOL="/path/to/K1_merged.mcool"
 export SCAFFOLD_LENGTHS="${HI_C_DIR}/data/scaffold.lengths.txt"  # two columns: <scaffold> <length>
 
 # ---- Track visualization inputs ----
-export CHROMHMM_SEGMENTS="/path/to/cho_ont_clean_10_segments.bed"  # chromHMM 10-state
+export CHROMHMM_SEGMENTS="/path/to/CriGri_PUMC_clean_10_segments.bed"  # chromHMM 10-state
 export RNA_BW_CRO="/path/to/Cro.sorted.newref.bigwig"
 export RNA_BW_A485="/path/to/10uM.sorted.newref.bigwig"
 export A485_RNA_DIR="${RAW_DIR}/A485_CHO_RNAseq/Cleandata"
@@ -103,11 +107,11 @@ export FANC_BIN="/path/to/fanc"                                   # FAN-C v0.9.2
 export BEDTOOLS="bedtools"
 
 # ---- 00_hic-pro inputs and helper programs ----
-export HIC_PREFIX="cho_ont"                                       # genome prefix used by 00_hic-pro
+export HIC_PREFIX="CriGri_PUMC"                                       # genome prefix used by 00_hic-pro
 export HIC_REF_DIR="/path/to/ref_genome"                          # clean genome, sizes, restriction BED
 export HIC_RAW_DIR="${RAW_DIR}/hic_raw"                           # <sample>/<sample>_R{1,2}.fq.gz
 export HIC_CLEAN_DIR="${WORK_DIR}/hi_c/clean_fastq"               # trimmed reads
-export HICPRO_CONFIG="/path/to/config-cho_ont_Hae3-bl-hic.txt"
+export HICPRO_CONFIG="/path/to/config-CriGri_PUMC_Hae3-bl-hic.txt"
 export HICPRO_TRIM_MK="/path/to/BLHiC_filter_trim.mk"
 export HICPRO_MAT_MK="/path/to/mat_format.mk"
 export HICPRO_ANNO_DIR="/path/to/hicpro_anno_scripts"             # step1_all_chr_size.pl, pureLength_fasta.py

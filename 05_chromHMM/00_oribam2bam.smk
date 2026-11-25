@@ -7,7 +7,7 @@
 
 import os
 
-INDEX_BT2 = os.path.join(os.environ["BT2_INDEX_DIR"], "cho_ont_clean", "cho_ont_clean")
+INDEX_BT2 = os.path.join(os.environ["BT2_INDEX_DIR"], "CriGri_PUMC_clean", "CriGri_PUMC_clean")
 ORI_BAM_DIR = os.environ["CHIP_ORI_BAM_DIR"]
 SAMPLE = ["H3K4me1","H3K4me3","H3K9me3","H3K27ac","H3K27me3","H3K36me3","input"]
 # INPUT = "sorted_bam/input_sorted.bam"

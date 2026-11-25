@@ -15,11 +15,11 @@ Pipeline: `repeat annotation (HiTE + Dfam) -> gene structure (Augustus + EviAnn 
 
 | Script | Purpose | Environment |
 |---|---|---|
-| `ChIP-seq/01-CHIP_mapping_rate.smk` | ChIP-seq read QC and mapping rate against each genome (cg20, cg1001, cho_ont) | `CHIP-seq` |
+| `ChIP-seq/01-CHIP_mapping_rate.smk` | ChIP-seq read QC and mapping rate against each genome (cg20, cg1001, CriGri_PUMC) | `CHIP-seq` |
 | `RNA-seq/02-RNA-seq_mapping_rate.smk` | RNA-seq read QC and mapping rate against each genome | `RNA-seq` |
 | `RNA-seq/03-hisat2-build.sh` | HISAT2 index with splice sites and exons from GTF | `RNA-seq` |
 
-These scripts read `ANNOT_REF_DIR`, `ONT_REF_DIR`, `BT2_INDEX_DIR`, `HISAT2_INDEX_DIR`,
+These scripts read `ANNOT_REF_DIR`, `GENOME_REF_DIR`, `BT2_INDEX_DIR`, `HISAT2_INDEX_DIR`,
 `CHIP_ALIGN_DIR` and `RNA_ALIGN_DIR` from `../config.sh`.
 Run `source config.sh` before starting the Snakemake workflows.
 

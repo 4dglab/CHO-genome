@@ -39,7 +39,30 @@ The Hi-C settings are in `../config.sh`. Each script repeats the list in its `# 
 | 1 | `00_hic-pro/01-hic-pro_annofiles.sh` | clean genome (scaffold_1-11), chrom sizes, bowtie2 index, HaeIII restriction fragments | samtools, bowtie2-build, HiC-Pro `digest_genome.py`, custom Perl |
 | 2 | `00_hic-pro/02-run_hic-pro.smk` | linker trimming -> HiC-Pro 3.1.0 -> `allValidPairs` -> `.hic` -> `.mcool` | HiC-Pro, juicer_tools, hic2cool |
 
-The HiC-Pro configuration used in the study is `00_hic-pro/config-cho_ont_Hae3-bl-hic.txt`
+### Reference preparation
+
+`*_clean` means `scaffold_1` to `scaffold_11` only. The other 63 scaffolds are
+removed before Hi-C and chromatin-state analysis.
+
+`00_hic-pro/01-hic-pro_annofiles.sh` builds the clean set from the full assembly:
+
+1. `samtools faidx` indexes the full FASTA.
+2. A loop extracts `scaffold_1` to `scaffold_11` into `<prefix>_clean.fa`.
+3. `step1_all_chr_size.pl` writes `<prefix>_clean.sizes`.
+4. `bowtie2-build` builds the index.
+5. `digest_genome.py` writes the HaeIII fragment table.
+
+The clean GTF is the full GTF restricted to the same 11 scaffolds.
+The original command was not recorded. This filter reproduces it:
+
+```bash
+awk -F'\t' 'NR<=3 || $1 ~ /^scaffold_([1-9]|1[01])$/' CriGri_PUMC.gtf > CriGri_PUMC_clean.gtf
+```
+
+The step is optional. Point `GENOME_FA`, `GENOME_SIZES` and `GENOME_GTF` at the full
+assembly if the indices already match it.
+
+The HiC-Pro configuration used in the study is `00_hic-pro/config-CriGri_PUMC_Hae3-bl-hic.txt`
 (BL-Hi-C, HaeIII, ligation site `CGCGATATCTTATCTGAC`).
 Trimming and matrix conversion use the `BLHiC_filter_trim.mk` and `mat_format.mk` makefiles(in-house written, equivalent software may be used instead.)
 

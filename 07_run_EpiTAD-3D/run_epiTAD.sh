@@ -17,7 +17,7 @@ out_root="${EPITAD3D_OUT_DIR}"
 # scaffold_7 96783600-96784800
 # 95437617 97284800
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00017606" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00017606" \
     -r ${resolution} \
     --chr scaffold_7 -s 95437617 -e 97284800 \
     --max_mem 100 --cores 20 \
@@ -28,7 +28,7 @@ python "${plot_script}" \
 # scaffold_5 174403200-174403400
 # 173903200 175075958
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00014741" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00014741" \
     -r ${resolution} \
     --chr scaffold_5 -s 173903200 -e 175075958 \
     --max_mem 100 --cores 20 \
@@ -40,7 +40,7 @@ python "${plot_script}" \
 # scaffold_3 240314000-240315800
 # 239814000 240940747
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00010602" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00010602" \
     -r ${resolution} \
     --chr scaffold_3 -s 239814000 -e 240940747 \
     --max_mem 100 --cores 20 \
@@ -52,7 +52,7 @@ python "${plot_script}" \
 # 96788400 97857297
 # LOC_00014148
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00014148" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00014148" \
     -r ${resolution} \
     --chr scaffold_5 -s 96788400 -e 97857297 \
     --max_mem 100 --cores 20 \
@@ -62,7 +62,7 @@ python "${plot_script}" \
 
 # LOC_00003154
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00003154" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00003154" \
     -r ${resolution} \
     --chr scaffold_1 -s 452334600 -e 453387424 \
     --max_mem 100 --cores 20 \
@@ -71,7 +71,7 @@ python "${plot_script}" \
 
 # LOC_00018041
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00018041" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00018041" \
     -r ${resolution} \
     --chr scaffold_7 -s 112127000 -e 118723000 \
     --max_mem 100 --cores 20 \
@@ -80,7 +80,7 @@ python "${plot_script}" \
 
 # LOC_00018045
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00018045" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00018045" \
     -r ${resolution} \
     --chr scaffold_7 -s 112130800 -e 118729200 \
     --max_mem 100 --cores 20 \
@@ -89,7 +89,7 @@ python "${plot_script}" \
 
 # LOC_00018034
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00018034" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00018034" \
     -r ${resolution} \
     --chr scaffold_7 -s 114933200 -e 118268600 \
     --max_mem 100 --cores 20 \
@@ -98,7 +98,7 @@ python "${plot_script}" \
 
 # LOC_00006965
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00006965" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00006965" \
     -r ${resolution} \
     --chr scaffold_2 -s 296680800 -e 299411000 \
     --max_mem 100 --cores 20 \
@@ -109,7 +109,7 @@ python "${plot_script}" \
 
 # LOC_00010101 scaffold_3 175804101-175807458
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00010101" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00010101" \
     -r ${resolution} \
     --chr scaffold_3 -s 174680000 -e 176885000 \
     --max_mem 100 --cores 20 \
@@ -118,7 +118,7 @@ python "${plot_script}" \
 
 # LOC_00001648 scaffold_1 235045653-235052420
 python "${plot_script}" \
-    -c cho_ont -o "${out_root}/LOC_00001648" \
+    -c CriGri_PUMC -o "${out_root}/LOC_00001648" \
     -r ${resolution} \
     --chr scaffold_1 -s 233730000 -e 237550000 \
     --max_mem 100 --cores 20 \

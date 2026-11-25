@@ -37,7 +37,7 @@ PAIR2_EXT = _R2
 
 MIN_MAPQ = 0
 
-BOWTIE2_IDX_PATH = /path/to/bowtie2_index/cho_ont_clean
+BOWTIE2_IDX_PATH = /path/to/bowtie2_index/CriGri_PUMC_clean
 BOWTIE2_GLOBAL_OPTIONS = --very-sensitive -L 30 --score-min L,-0.6,-0.2 --end-to-end --reorder
 BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to-end --reorder
 
@@ -45,8 +45,8 @@ BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to
 ## Annotation files
 #######################################################################
 
-REFERENCE_GENOME = cho_ont_clean
-GENOME_SIZE = /path/to/ref_genome/cho_ont_clean.sizes
+REFERENCE_GENOME = CriGri_PUMC_clean
+GENOME_SIZE = /path/to/ref_genome/CriGri_PUMC_clean.sizes
 
 #######################################################################
 ## Allele specific analysis
@@ -65,7 +65,7 @@ REPORT_CAPTURE_REPORTER = 1
 ## Digestion Hi-C
 #######################################################################
 
-GENOME_FRAGMENT = /path/to/ref_genome/cho_ont_clean_HaeIII_frag.bed
+GENOME_FRAGMENT = /path/to/ref_genome/CriGri_PUMC_clean_HaeIII_frag.bed
 LIGATION_SITE = CGCGATATCTTATCTGAC
 MIN_FRAG_SIZE = 
 MAX_FRAG_SIZE =

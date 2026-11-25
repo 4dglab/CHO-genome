@@ -1,7 +1,7 @@
 ##################################
 #!/bin/python3
 # 2026-08-21
-# CHO_ONT HiC-Pro
+# CriGri_PUMC HiC-Pro
 # env: hic
 # REQUIRES: source ../../config.sh before running snakemake
 ###################################
@@ -19,7 +19,7 @@ CLEAN = os.environ["HIC_CLEAN_DIR"]
 rule all:
     input:
         "hic-pro.done",
-        expand("mat_format_trans/CHO_ONT/{sample}.mcool", sample=SAMPLE)
+        expand("mat_format_trans/CriGri_PUMC/{sample}.mcool", sample=SAMPLE)
 
 rule bl_trimming:
     input:
@@ -71,10 +71,10 @@ rule valid2mcool:
     input:
         "hic-pro.done"
     output:
-        "mat_format_trans/CHO_ONT/{sample}.mcool"
+        "mat_format_trans/CriGri_PUMC/{sample}.mcool"
     params:
         "hic-pro_out/hic_results/data/{sample}/{sample}.allValidPairs",
-        "mat_format_trans/CHO_ONT/{sample}"
+        "mat_format_trans/CriGri_PUMC/{sample}"
     shell:
         "make -f {MAT_FORMAT} \
         chromsizes={SIZE} \

@@ -18,6 +18,8 @@ Notes:
   `CHIP_ORI_BAM_DIR`, `HISTONE_BW_DIR`, `MACS3_OUT_DIR`, `CHROMHMM_PROJECT_DIR`, `CHROMHMM_HOME`,
   `CHROMHMM_GENOME`, `GTF_TO_GENEPRED` and `CHROMHMM_JAVA_OPTS`.
   The `.smk` files read these from the environment, so run `source config.sh` first.
+- `GENOME_GTF` is the clean annotation (`scaffold_1` to `scaffold_11`).
+  See [06_Hi-C/README.md](../06_Hi-C/README.md#reference-preparation) for how it is built.
 - `mark_table.tsv` lists the BAM file and the mark name. Paths inside that table must be **relative**,
   because ChromHMM concatenates paths internally.
 - ChromHMM also needs a chrom-sizes file in `CHROMHMM/CHROMSIZES/<genome>.txt` and the gene table

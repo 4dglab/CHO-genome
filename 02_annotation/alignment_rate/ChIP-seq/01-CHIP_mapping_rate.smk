@@ -6,7 +6,7 @@
 import os
 
 # cg20 stands for CriGri-PICRH-1.0 (2020)
-GENOME = ["cho_ont", "cg_20"]
+GENOME = ["CriGri_PUMC", "cg_20"]
 CATAGORY = "CHO_2021"
 SAMPLE = ["H3K4me3","H3K27ac","H3K9me3","input"]
 TIME = ["T3","T7"]
@@ -17,7 +17,7 @@ wildcard_constraints:
     catagory="CHO_2021",
     sample="(?:H3K4me3|H3K27ac|H3K9me3|input)",
     time="(?:T3|T7)",
-    genome="(?:cho_ont|cg_20)"
+    genome="(?:CriGri_PUMC|cg_20)"
 
 rule all:
     input:

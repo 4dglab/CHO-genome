@@ -4,7 +4,7 @@
 # REQUIRES (set in ../../../config.sh):
 #   ANNOT_REF_DIR      reference root: <genome>/<genome>.fa and <genome>.gtf
 #   HISAT2_INDEX_DIR   output directory for the HISAT2 indices
-#   ONT_REF_DIR        cho_ont.fa and cho_ont.gtf for the last index
+#   GENOME_REF_DIR     CriGri_PUMC.fa and CriGri_PUMC.gtf for the last index
 
 # gffread ${ANNOT_REF_DIR}/cg13b/ncbi_dataset/data/cg13b/cg13b.gff \
 # 	-T -E -o ${ANNOT_REF_DIR}/cg13b/ncbi_dataset/data/cg13b/cg13b.gtf
@@ -40,21 +40,21 @@ do
     echo "index for ${genome} is finished."
 done
 
-# cho_ont
-ONT_BASE="${ONT_REF_DIR}"
-ONT_FA="${ONT_BASE}/cho_ont.fa"
-ONT_INDEX="${HISAT2_INDEX_DIR}/cho_ont"
+# CriGri_PUMC
+GENOME_BASE="${GENOME_REF_DIR}"
+PUMC_FA="${GENOME_BASE}/CriGri_PUMC.fa"
+PUMC_INDEX="${HISAT2_INDEX_DIR}/CriGri_PUMC"
 
 hisat2_extract_splice_sites.py \
-    "${ONT_BASE}/cho_ont.gtf" > "${ONT_BASE}/cho_ont.ss"
+    "${GENOME_BASE}/CriGri_PUMC.gtf" > "${GENOME_BASE}/CriGri_PUMC.ss"
  hisat2_extract_exons.py \
-    "${ONT_BASE}/cho_ont.gtf" > "${ONT_BASE}/cho_ont.exon"
+    "${GENOME_BASE}/CriGri_PUMC.gtf" > "${GENOME_BASE}/CriGri_PUMC.exon"
 
 hisat2-build -p "$THREADS" \
-    --ss "${ONT_BASE}/cho_ont.ss" \
-    --exon "${ONT_BASE}/cho_ont.exon" \
-    "$ONT_FA" \
-    "$ONT_INDEX"
-echo "index for cho_ont is finished."
+    --ss "${GENOME_BASE}/CriGri_PUMC.ss" \
+    --exon "${GENOME_BASE}/CriGri_PUMC.exon" \
+    "$PUMC_FA" \
+    "$PUMC_INDEX"
+echo "index for CriGri_PUMC is finished."
 
 

@@ -325,21 +325,17 @@ Reconcile these with the manuscript Methods before submission.
 - **Configuration.** Every path is set in `config.sh`. The `.sh` scripts source it themselves.
   The Snakemake files (`.smk`) and the plotting scripts read the same values from the environment,
   so run `source config.sh` first. Each script lists its inputs in a `# REQUIRES` header.
-- **One file to edit by hand.** `06_Hi-C/00_hic-pro/config-cho_ont_Hae3-bl-hic.txt` is a HiC-Pro
+- **One file to edit by hand.** `06_Hi-C/00_hic-pro/config-CriGri_PUMC_Hae3-bl-hic.txt` is a HiC-Pro
   configuration file and cannot read `config.sh`. Edit its three `/path/to` entries.
 - **External helper programs.** `06_Hi-C/00_hic-pro/` needs `step1_all_chr_size.pl`,
   `pureLength_fasta.py`, `digest_genome.py` and the trimming/matrix makefiles. Point
   `HICPRO_ANNO_DIR`, `HICPRO_HOME`, `HICPRO_TRIM_MK` and `HICPRO_MAT_MK` to your copies.
 - **Notebooks** (`05_chromHMM/*.ipynb`) read `CHROMHMM_PROJECT_DIR` and `CHROMHMM_GENOME` from the
-  environment (defaults: `chromHMM_project`, `cho_ont_clean`).
+  environment (defaults: `chromHMM_project`, `CriGri_PUMC_clean`).
 
 ---
 
 ## Citation and license
-
-If you use this code, please cite:
-
-> *From 1D to 3D Genome of the Chinese Hamster Ovary Cell*
 
 This repository is released under the MIT License. See [`LICENSE`](LICENSE).
 

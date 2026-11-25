@@ -52,7 +52,7 @@ echo "==============="
 # python $filter_script -g $raw_genome_file \
 #   -p $prefix_clean -a $segments_prefix -o $ref_dir
 
-# in cho_ont:
+# in CriGri_PUMC:
 samtools faidx "$raw_genome_file"
 
 for i in {1..11}; do

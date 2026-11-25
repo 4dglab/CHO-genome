@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #####################################
 # 2026-08-31
-# chromHMM for chip-cho_ont
+# chromHMM for chip-CriGri_PUMC
 # env: chromhmm-env
 # REQUIRES (set in ../config.sh):
 #   GENOME_FA             reference genome fasta
