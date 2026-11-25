@@ -1,0 +1,22 @@
+name: pastis
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python=3.9
+  - autograd
+  - cooler
+  - h5py
+  - iced
+  - matplotlib-base
+  - multiprocess
+  - natsort
+  - numpy
+  - pandas
+  - pyfaidx
+  - pyranges
+  - scikit-learn
+  - scipy
+  - tqdm

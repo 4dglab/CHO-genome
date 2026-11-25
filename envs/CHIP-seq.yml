@@ -1,0 +1,19 @@
+name: CHIP-seq
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - bowtie2
+  - deeptools
+  - fastp
+  - fastqc
+  - macs3
+  - openjdk
+  - pybigwig
+  - pysam
+  - python
+  - samtools
+  - snakemake
+  - ucsc-bedgraphtobigwig

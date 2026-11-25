@@ -1,0 +1,8 @@
+name: busco-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - busco=6.0.0

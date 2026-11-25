@@ -1,0 +1,9 @@
+name: hic-tools
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - bedtools
+  - openjdk

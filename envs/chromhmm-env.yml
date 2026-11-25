@@ -1,0 +1,14 @@
+name: chromhmm-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - matplotlib-base
+  - numpy
+  - openjdk
+  - pandas
+  - python
+  - seaborn
+  - ucsc-gtftogenepred

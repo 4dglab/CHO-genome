@@ -1,0 +1,10 @@
+name: hifiasm-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - hifiasm==0.25.0
+  - gfatools
+  - tidk=0.2.65

@@ -1,0 +1,8 @@
+name: kmc-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - kmc=3.2.4

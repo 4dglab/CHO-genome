@@ -1,0 +1,99 @@
+# Please change the variable settings below if necessary
+# Paths marked /path/to must be edited before running HiC-Pro
+
+#########################################################################
+## Paths and Settings  - Do not edit !
+#########################################################################
+
+TMP_DIR = tmp
+LOGS_DIR = logs
+BOWTIE2_OUTPUT_DIR = bowtie_results
+MAPC_OUTPUT = hic_results
+RAW_DIR = filter
+
+#######################################################################
+## SYSTEM AND SCHEDULER - Start Editing Here !!
+#######################################################################
+N_CPU = 10
+SORT_RAM = 20480M
+LOGFILE = hicpro.log
+
+JOB_NAME = 
+JOB_MEM = 
+JOB_WALLTIME = 
+JOB_QUEUE = 
+JOB_MAIL = 
+
+#########################################################################
+## Data
+#########################################################################
+
+PAIR1_EXT = _R1
+PAIR2_EXT = _R2
+
+#######################################################################
+## Alignment options
+#######################################################################
+
+MIN_MAPQ = 0
+
+BOWTIE2_IDX_PATH = /path/to/bowtie2_index/cho_ont_clean
+BOWTIE2_GLOBAL_OPTIONS = --very-sensitive -L 30 --score-min L,-0.6,-0.2 --end-to-end --reorder
+BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to-end --reorder
+
+#######################################################################
+## Annotation files
+#######################################################################
+
+REFERENCE_GENOME = cho_ont_clean
+GENOME_SIZE = /path/to/ref_genome/cho_ont_clean.sizes
+
+#######################################################################
+## Allele specific analysis
+################ #######################################################
+
+ALLELE_SPECIFIC_SNP = 
+
+#######################################################################
+## Capture Hi-C analysis
+#######################################################################
+
+CAPTURE_TARGET =
+REPORT_CAPTURE_REPORTER = 1
+
+#######################################################################
+## Digestion Hi-C
+#######################################################################
+
+GENOME_FRAGMENT = /path/to/ref_genome/cho_ont_clean_HaeIII_frag.bed
+LIGATION_SITE = CGCGATATCTTATCTGAC
+MIN_FRAG_SIZE = 
+MAX_FRAG_SIZE =
+MIN_INSERT_SIZE = 50
+MAX_INSERT_SIZE = 9000000000
+
+#######################################################################
+## Hi-C processing
+#######################################################################
+
+MIN_CIS_DIST = 500
+GET_ALL_INTERACTION_CLASSES = 0
+GET_PROCESS_SAM = 0
+RM_SINGLETON = 1
+RM_MULTI = 1
+RM_DUP = 1
+
+#######################################################################
+## Contact Maps
+#######################################################################
+
+BIN_SIZE = 1000 5000 10000
+MATRIX_FORMAT = asis
+
+#######################################################################
+## Normalization
+#######################################################################
+MAX_ITER = 100
+FILTER_LOW_COUNT_PERC = 0.02
+FILTER_HIGH_COUNT_PERC = 0
+EPS = 0.1

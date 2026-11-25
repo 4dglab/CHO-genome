@@ -1,0 +1,23 @@
+name: annotation-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - hisat2
+  - samtools
+  - stringtie
+  - augustus=3.5.0
+  - snap
+  - infernal
+  - repeatmasker
+  - trnascan-se
+  - agat
+  - cd-hit
+  - eggnog-mapper
+  - seqtk
+  - exonerate
+  - maker
+  - isoseq3
+  - lima

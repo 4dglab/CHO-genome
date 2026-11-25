@@ -1,0 +1,10 @@
+name: tgsgapcloser-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - tgsgapcloser
+  - samtools
+  - racon=1.5.0

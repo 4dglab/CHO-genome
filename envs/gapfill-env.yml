@@ -1,0 +1,13 @@
+name: gapfill-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - minimap2
+  - nextdenovo=2.5.2
+  - samtools
+  - bcftools
+  - abpoa=1.5.6
+  - flye=2.9.6

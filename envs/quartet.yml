@@ -1,0 +1,11 @@
+name: quartet
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - blast
+  - cd-hit
+  - python=3.9
+  - trf

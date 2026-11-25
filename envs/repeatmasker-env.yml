@@ -1,0 +1,8 @@
+name: repeatmasker-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - repeatmasker=4.2.4

@@ -1,0 +1,17 @@
+name: hic-viz-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python
+  - cooler
+  - pybigwig
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - pip
+  - pip:
+      - trackc

@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak

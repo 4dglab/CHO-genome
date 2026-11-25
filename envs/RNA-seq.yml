@@ -1,0 +1,14 @@
+name: RNA-seq
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - fastp
+  - gffread
+  - hisat2
+  - pandas
+  - python
+  - r-base
+  - samtools

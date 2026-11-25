@@ -1,0 +1,32 @@
+name: hic
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python=3.9
+  - bioframe
+  - bowtie2
+  - bx-python
+  - cooler
+  - cooltools
+  - hic2cool
+  - htslib
+  - iced
+  - matplotlib-base
+  - numpy
+  - openjdk
+  - pandas
+  - pybigwig
+  - pysam
+  - r-base
+  - r-ggplot2
+  - r-gridbase
+  - r-rcolorbrewer
+  - samtools
+  - scipy
+  - snakemake
+  - pip
+  - pip:
+      - trackc

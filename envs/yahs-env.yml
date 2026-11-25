@@ -1,0 +1,11 @@
+name: yahs-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - bwa
+  - minimap2
+  - samtools
+  - yahs=1.2.2

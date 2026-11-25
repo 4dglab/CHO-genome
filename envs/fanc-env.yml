@@ -1,0 +1,11 @@
+name: fanc-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python
+  - pip
+  - pip:
+      - fanc

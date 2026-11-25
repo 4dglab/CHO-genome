@@ -1,0 +1,14 @@
+name: nextpolish2-env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - meryl
+  - minimap2
+  - nextpolish2
+  - samtools
+  - winnowmap
+  - yak
+  - merqury=1.4.1
