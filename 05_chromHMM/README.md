@@ -20,10 +20,19 @@ Notes:
   The `.smk` files read these from the environment, so run `source config.sh` first.
 - `GENOME_GTF` is the clean annotation (`scaffold_1` to `scaffold_11`).
   See [06_Hi-C/README.md](../06_Hi-C/README.md#reference-preparation) for how it is built.
-- `mark_table.tsv` lists the BAM file and the mark name. Paths inside that table must be **relative**,
-  because ChromHMM concatenates paths internally.
-- ChromHMM also needs a chrom-sizes file in `CHROMHMM/CHROMSIZES/<genome>.txt` and the gene table
-  converted with `ConvertGeneTable` (the script calls `gtfToGenePred` first).
+- `mark_table.tsv` must be created before step 4. It has two tab-separated columns, the BAM path and
+  the mark name, one line per mark. Paths must be **relative**, because ChromHMM concatenates paths
+  internally. Example:
+
+  ```text
+  sorted_bam/H3K4me3_sorted.bam	H3K4me3
+  sorted_bam/H3K27ac_sorted.bam	H3K27ac
+  sorted_bam/input_sorted.bam	input
+  ```
+- `CHROMHMM/CHROMSIZES/<genome>.txt` must also be created. It has two tab-separated columns,
+  `<scaffold>` and `<length>`. Copy `GENOME_SIZES` to that path.
+- ChromHMM needs the gene table converted with `ConvertGeneTable`.
+  The script calls `gtfToGenePred` first.
 
 ## Environment
 

@@ -27,7 +27,7 @@ The Hi-C settings are in `../config.sh`. Each script repeats the list in its `# 
 | `HICPRO_CONFIG` | HiC-Pro configuration file |
 | `HICPRO_TRIM_MK` | linker-trimming makefile |
 | `HICPRO_MAT_MK` | matrix-conversion makefile (`juicer pre`, `hic2cool`) |
-| `HICPRO_ANNO_DIR` | `step1_all_chr_size.pl` and `pureLength_fasta.py` |
+| `HICPRO_ANNO_DIR` | `step1_all_chr_size.pl` (in-house) |
 | `HICPRO_HOME` | HiC-Pro install (`bin/utils/digest_genome.py`) |
 
 `JUICER_TOOLS` and `THREADS` come from `../config.sh` as well.
@@ -38,6 +38,29 @@ The Hi-C settings are in `../config.sh`. Each script repeats the list in its `# 
 |---|---|---|---|
 | 1 | `00_hic-pro/01-hic-pro_annofiles.sh` | clean genome (scaffold_1-11), chrom sizes, bowtie2 index, HaeIII restriction fragments | samtools, bowtie2-build, HiC-Pro `digest_genome.py`, custom Perl |
 | 2 | `00_hic-pro/02-run_hic-pro.smk` | linker trimming -> HiC-Pro 3.1.0 -> `allValidPairs` -> `.hic` -> `.mcool` | HiC-Pro, juicer_tools, hic2cool |
+
+### Files you must create
+
+| File | Content | How to create |
+|---|---|---|
+| `scaffold.lengths.txt` | two columns, `<scaffold>\t<length>`, one line per scaffold | `cut -f1,2 CriGri_PUMC_clean.fa.fai > scaffold.lengths.txt` |
+
+`SCAFFOLD_LENGTHS` points at this file (default: `${HI_C_DIR}/data/scaffold.lengths.txt`).
+`02_tad/01_run_ontad.sh` reads it to loop over scaffolds.
+
+### In-house helper files
+
+Three files used here are written by our group and are not shipped with this repository:
+
+| File | What it does | Alternative |
+|---|---|---|
+| `step1_all_chr_size.pl` | writes two columns `<scaffold>\t<length>` from a FASTA | `cut -f1,2 <genome>.fa.fai` after `samtools faidx` |
+| `BLHiC_filter_trim.mk` | trims BL-Hi-C linkers and filters reads, writes `<sample>_clean_R1/R2.fq.gz` | any linker-aware trimmer that writes the same names |
+| `mat_format.mk` | `allValidPairs` to `.hic` (`juicer pre`) to `.mcool` (`hic2cool`) | run `juicer_tools pre` and `hic2cool` directly |
+
+Set `HICPRO_ANNO_DIR`, `HICPRO_TRIM_MK` and `HICPRO_MAT_MK` to your copies.
+`digest_genome.py` ships with HiC-Pro (`HICPRO_HOME`).
+`pureLength_fasta.py` is only used by the commented genome-filter branch.
 
 ### Reference preparation
 
@@ -64,7 +87,10 @@ assembly if the indices already match it.
 
 The HiC-Pro configuration used in the study is `00_hic-pro/config-CriGri_PUMC_Hae3-bl-hic.txt`
 (BL-Hi-C, HaeIII, ligation site `CGCGATATCTTATCTGAC`).
-Trimming and matrix conversion use the `BLHiC_filter_trim.mk` and `mat_format.mk` makefiles(in-house written, equivalent software may be used instead.)
+The file cannot read `config.sh`. Edit `BOWTIE2_IDX_PATH`, `GENOME_SIZE` and `GENOME_FRAGMENT`
+before running the workflow.
+Trimming and matrix conversion use the in-house `BLHiC_filter_trim.mk` and `mat_format.mk`
+(see In-house helper files above).
 
 ## 01_loop_calling
 

@@ -93,7 +93,7 @@ export HI_C_DIR="${WORK_DIR}/hi_c"
 # ---- Hi-C input matrices (produced by HiC-Pro 3.1.0) ----
 export HIC_FILE="/path/to/K1_merged.hic"
 export MCCOOL="/path/to/K1_merged.mcool"
-export SCAFFOLD_LENGTHS="${HI_C_DIR}/data/scaffold.lengths.txt"  # two columns: <scaffold> <length>
+export SCAFFOLD_LENGTHS="${HI_C_DIR}/data/scaffold.lengths.txt"  # <scaffold> <length>, cut -f1,2 from the .fai
 
 # ---- Track visualization inputs ----
 export CHROMHMM_SEGMENTS="/path/to/CriGri_PUMC_clean_10_segments.bed"  # chromHMM 10-state
@@ -111,10 +111,10 @@ export HIC_PREFIX="CriGri_PUMC"                                       # genome p
 export HIC_REF_DIR="/path/to/ref_genome"                          # clean genome, sizes, restriction BED
 export HIC_RAW_DIR="${RAW_DIR}/hic_raw"                           # <sample>/<sample>_R{1,2}.fq.gz
 export HIC_CLEAN_DIR="${WORK_DIR}/hi_c/clean_fastq"               # trimmed reads
-export HICPRO_CONFIG="/path/to/config-CriGri_PUMC_Hae3-bl-hic.txt"
-export HICPRO_TRIM_MK="/path/to/BLHiC_filter_trim.mk"
-export HICPRO_MAT_MK="/path/to/mat_format.mk"
-export HICPRO_ANNO_DIR="/path/to/hicpro_anno_scripts"             # step1_all_chr_size.pl, pureLength_fasta.py
+export HICPRO_CONFIG="/path/to/config-CriGri_PUMC_Hae3-bl-hic.txt"  # edit its 3 /path/to entries
+export HICPRO_TRIM_MK="/path/to/BLHiC_filter_trim.mk"            # in-house, see 06_Hi-C/README.md
+export HICPRO_MAT_MK="/path/to/mat_format.mk"                    # in-house, see 06_Hi-C/README.md
+export HICPRO_ANNO_DIR="/path/to/hicpro_anno_scripts"             # in-house: step1_all_chr_size.pl
 export HICPRO_HOME="/path/to/HiC-Pro_3.1.0"                       # for bin/utils/digest_genome.py
 
 # ==============================================================================

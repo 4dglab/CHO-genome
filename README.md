@@ -5,33 +5,29 @@ The repository covers de novo genome assembly, genome annotation, PUR/synteny an
 GenomeSyn visualization, chromatin-state segmentation (ChromHMM), Hi-C analysis
 (loops, nested TADs, A/B compartments) and 3D chromatin reconstruction.
 
-Final assembly: **CriGri_PUMC** (74 scaffolds, 2.67 Gb total span, ~2.41 Gb haploid genome size).
 
 ---
 
 ## Contents
 
-- [From 1D to 3D Genome of the Chinese Hamster Ovary Cell](#from-1d-to-3d-genome-of-the-chinese-hamster-ovary-cell)
-  - [Contents](#contents)
-  - [Data availability](#data-availability)
-  - [Requirements](#requirements)
-  - [Directory structure](#directory-structure)
-  - [Quick start](#quick-start)
-  - [Module documentation](#module-documentation)
-  - [Conda environments](#conda-environments)
-  - [Software versions](#software-versions)
-    - [1. Genome assembly](#1-genome-assembly)
-    - [2. Assembly QC](#2-assembly-qc)
-    - [3. Repeat annotation](#3-repeat-annotation)
-    - [4. Gene annotation](#4-gene-annotation)
-    - [5. ChIP-seq and RNA-seq preprocessing](#5-chip-seq-and-rna-seq-preprocessing)
-    - [6. Chromatin states (ChromHMM)](#6-chromatin-states-chromhmm)
-    - [7. Hi-C and 3D genome analysis](#7-hi-c-and-3d-genome-analysis)
-    - [8. Statistics and scripting environment](#8-statistics-and-scripting-environment)
-    - [Version notes](#version-notes)
-  - [Notes and limitations](#notes-and-limitations)
-  - [Citation and license](#citation-and-license)
-  - [Contact](#contact)
+- [Data availability](#data-availability)
+- [Requirements](#requirements)
+- [Directory structure](#directory-structure)
+- [Quick start](#quick-start)
+- [Module documentation](#module-documentation)
+- [Conda environments](#conda-environments)
+- [Software versions](#software-versions)
+  - [1. Genome assembly](#1-genome-assembly)
+  - [2. Assembly QC](#2-assembly-qc)
+  - [3. Repeat annotation](#3-repeat-annotation)
+  - [4. Gene annotation](#4-gene-annotation)
+  - [5. ChIP-seq and RNA-seq preprocessing](#5-chip-seq-and-rna-seq-preprocessing)
+  - [6. Chromatin states (ChromHMM)](#6-chromatin-states-chromhmm)
+  - [7. Hi-C and 3D genome analysis](#7-hi-c-and-3d-genome-analysis)
+  - [8. Statistics and scripting environment](#8-statistics-and-scripting-environment)
+- [Notes and limitations](#notes-and-limitations)
+- [Citation and license](#citation-and-license)
+- [Contact](#contact)
 
 ---
 
@@ -39,6 +35,7 @@ Final assembly: **CriGri_PUMC** (74 scaffolds, 2.67 Gb total span, ~2.41 Gb hapl
 
 | Data | Location |
 |---|---|
+| Raw sequencing data (HiFi / Hi-C / NGS / RNA-seq) | GSA: PRJCA028069 (https://ngdc.cncb.ac.cn/gsub/submit/bioproject/subPRO041564/overview) |
 | ChIP-seq (public) | NCBI SRA PRJNA865478; https://cho-epigenome.boku.ac.at/download.html |
 | Control RNA-seq (public) | NCBI SRA PRJNA1123849 |
 | Hi-C matrices (`.hic` / `.mcool`) | produced from GSA PRJCA028069 with HiC-Pro 3.1.0; see `06_Hi-C/00_hic-pro/` |
@@ -61,7 +58,7 @@ Final assembly: **CriGri_PUMC** (74 scaffolds, 2.67 Gb total span, ~2.41 Gb hapl
 - CPU/thread count and RAM: set `THREADS` in `config.sh` (default 48). Hi-C and ChromHMM steps use
   large heaps (`-Xms80g -Xmx80g` in `05_chromHMM/01_chromHMM.sh`); adjust to the available RAM.
 
-Programs that are **not** available from conda and must be obtained separately:
+Programs that are **not** available from conda. Download and install each one separately:
 
 | Program | Version | Used by | Configuration |
 |---|---|---|---|
@@ -72,6 +69,9 @@ Programs that are **not** available from conda and must be obtained separately:
 | GenomeSyn | 1.2.7 | `04_pur_visualization/` | `GENOMESYN` in `config.sh` |
 | gnuplot | — | `03_pur/` (`mummerplot`) | `GNUPLOT_BIN`, `GNUPLOT_PS_DIR` |
 | EpiTAD-3D | v1.0 | `07_run_EpiTAD-3D/` | `git clone https://github.com/SaotomeMirai/EpiTAD-3D` |
+
+`gtfToGenePred` is not in the table. `envs/chromhmm-env.yml` provides it as `ucsc-gtftogenepred`.
+Point `GTF_TO_GENEPRED` at that environment's `bin/gtfToGenePred`.
 
 ---
 
@@ -180,9 +180,9 @@ used in the study.
 
 ## Software versions
 
-Versions were read from (i) the conda environments used for the analysis, (ii) the pins in
-`envs/*.yml`, and (iii) `software_versions.md` of the earlier code release for programs that are not
-installed through conda. See [Version notes](#version-notes) for deviations from the earlier list.
+Versions were read from the conda environments used for the analysis and from the pins in
+`envs/*.yml`. For programs that are not installed through conda, the version is the one used in the
+study.
 
 ### 1. Genome assembly
 
@@ -298,24 +298,6 @@ installed through conda. See [Version notes](#version-notes) for deviations from
 | GenomeSyn | 1.2.7 | synteny / repeat / gene-density plots | `genomesyn` |
 | gnuplot | — | `mummerplot` output for nucmer | — |
 
-### Version notes
-
-Several numbers differ from `software_versions.md` of the earlier release because they were re-read
-from the environments used here. The tables above follow the measured values:
-
-| Software | Earlier list | This repository |
-|---|---|---|
-| fastp | 1.3.3 | 0.24.0 |
-| HISAT2 | 2.2.3 | 2.2.1 (RNA-seq alignment); 2.2.3 is the version cited for annotation |
-| OpenJDK | 17 | 23.0.1 / 23.0.2 |
-| trackC | 0.0.19 | 0.0.18 |
-| pyBigWig | 0.3.22 | 0.3.24 |
-| cooler | 0.10.2 | 0.9.3 (`hic`), 0.10.3 (`pastis`) |
-| R | 4.5.2 | 4.4.2 / 4.4.1 |
-| Python | 3.12.7 / 3.14 | 3.9.21 / 3.9.23 / 3.11.11 |
-
-Reconcile these with the manuscript Methods before submission.
-
 ---
 
 ## Notes and limitations
@@ -325,11 +307,14 @@ Reconcile these with the manuscript Methods before submission.
 - **Configuration.** Every path is set in `config.sh`. The `.sh` scripts source it themselves.
   The Snakemake files (`.smk`) and the plotting scripts read the same values from the environment,
   so run `source config.sh` first. Each script lists its inputs in a `# REQUIRES` header.
-- **One file to edit by hand.** `06_Hi-C/00_hic-pro/config-CriGri_PUMC_Hae3-bl-hic.txt` is a HiC-Pro
-  configuration file and cannot read `config.sh`. Edit its three `/path/to` entries.
-- **External helper programs.** `06_Hi-C/00_hic-pro/` needs `step1_all_chr_size.pl`,
-  `pureLength_fasta.py`, `digest_genome.py` and the trimming/matrix makefiles. Point
-  `HICPRO_ANNO_DIR`, `HICPRO_HOME`, `HICPRO_TRIM_MK` and `HICPRO_MAT_MK` to your copies.
+- **HiC-Pro configuration file.** `06_Hi-C/00_hic-pro/config-CriGri_PUMC_Hae3-bl-hic.txt` cannot
+  read `config.sh`. Edit three entries before running `02-run_hic-pro.smk`:
+  `BOWTIE2_IDX_PATH`, `GENOME_SIZE` and `GENOME_FRAGMENT`.
+- **In-house helper files.** Three files used by `06_Hi-C/00_hic-pro/` are written by us and not
+  shipped: `step1_all_chr_size.pl`, `BLHiC_filter_trim.mk` and `mat_format.mk`.
+  [06_Hi-C/README.md](06_Hi-C/README.md) describes each one.
+  Set `HICPRO_ANNO_DIR`, `HICPRO_TRIM_MK` and `HICPRO_MAT_MK` to your copies.
+  Any tool that produces the same outputs can replace them.
 - **Notebooks** (`05_chromHMM/*.ipynb`) read `CHROMHMM_PROJECT_DIR` and `CHROMHMM_GENOME` from the
   environment (defaults: `chromHMM_project`, `CriGri_PUMC_clean`).
 
