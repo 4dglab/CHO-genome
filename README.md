@@ -322,7 +322,7 @@ study.
 
 ## Citation and license
 
-This repository is released under the MIT License. See [`LICENSE`](LICENSE).
+This repository is released under the BSD 3-Clause License. See [`LICENSE`](LICENSE).
 
 ## Contact
 
